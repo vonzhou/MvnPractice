@@ -1,0 +1,4 @@
+com/vonzhou/mvnbook/account/captcha/AccountCaptchaService.class
+com/vonzhou/mvnbook/account/captcha/AccountCaptchaServiceImpl.class
+com/vonzhou/mvnbook/account/captcha/AccountCaptchaException.class
+com/vonzhou/mvnbook/account/captcha/RandomGenerator.class

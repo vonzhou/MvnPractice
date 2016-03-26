@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="propertyConfigurer"
+        class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <!-- 测试的时候使用services.properties,  问题:利用gmail server 无法成功 -->
+        <property name="location" value="classpath:services.properties"></property>
+    </bean>
+
+    <bean id = "javaMailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="protocol" value = "${email.protocol}"></property>
+        <property name="host" value = "${email.host}"></property>
+        <property name="port" value = "${email.port}"></property>
+        <property name="username" value = "${email.username}"></property>
+        <property name="password" value = "${email.password}"></property>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${email.auth}</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.socketFactory.port">465</prop>
+                <prop key="mail.smtp.socketFactory.class">"javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtp.quitwait">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id = "accountEmailService" class = "com.vonzhou.mvnbook.account.persist.account.email.AccountEmailServiceImpl">
+        <property name="javaMailSender" ref = "javaMailSender"></property>
+        <property name="systemEmail" value="${email.systemEmail}"></property>
+    </bean>
+</beans>

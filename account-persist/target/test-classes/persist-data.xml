@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<account-persist> 
+  <accounts>
+    <account id="vonzhou" name="FengX" email="232423424@qq.com" password="2323" activated="true"/>
+  </accounts> 
+</account-persist>

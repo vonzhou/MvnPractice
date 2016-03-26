@@ -1,0 +1,4 @@
+com/vonzhou/mvnbook/account/persist/account/email/AccountEmailException.class
+com/vonzhou/mvnbook/account/persist/account/email/AccountEmailService.class
+com/vonzhou/mvnbook/account/persist/account/email/AccountEmailServiceImpl.class
+com/vonzhou/mvnbook/account/persist/account/email/Main.class
